@@ -9,10 +9,8 @@ public class Cadastro {
     private static String nome;
     private static String telefone;
     private static String endereco;
-    private static String usuario;
-    private static String senha;
 
-    public void cadastrarUsuario() throws InterruptedException {
+    public void cadastrarUsuario() {
 
         System.out.println(">>>>>> CADASTRO <<<<<<");
         System.out.println("-> Digite seu nome: ");
@@ -23,12 +21,6 @@ public class Cadastro {
 
         System.out.println("-> Digite seu endereço:");
         endereco = leitor.nextLine();
-
-        System.out.println("-> Digite seu nome de usuario:");
-        usuario = leitor.nextLine();
-
-        System.out.println("-> Digite sua senha:");
-        senha = leitor.nextLine();
 
     }
 
@@ -54,17 +46,4 @@ public class Cadastro {
         Cadastro.endereco = endereco;
     }
 
-    public String getUsuario() { return usuario; }
-
-    public void setUsuario(String usuario) {
-        Cadastro.usuario = usuario;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        Cadastro.senha = senha;
-    }
 }

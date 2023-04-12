@@ -1,6 +1,7 @@
 package br.fag.pedido;
 
 import br.fag.cadastro.Cadastro;
+import br.fag.menu.Menu;
 import br.fag.pagamentos.Pagamentos;
 
 import java.util.Scanner;
@@ -11,9 +12,9 @@ public class ModoRetirarPedido {
 
     private Cadastro cadastro = new Cadastro();
 
-
-    @SuppressWarnings("unused")
     private int modoEntrega;
+
+    private Menu menu  = new Menu();
 
     public void EscolherEntrega() throws InterruptedException{
 
@@ -21,31 +22,24 @@ public class ModoRetirarPedido {
         Thread.sleep(2000);
 
         System.out.println("1. RETIRADA NO BALCÃO\n"
-                        + "2. ENTREGA A DOMICÍLIO\n "
+                        + "2. ENTREGA A DOMICÍLIO\n"
                         + "3. ALACARTE");
-        Thread.sleep(1000);
         System.out.println("-> Selecione a melhor opção para você: ");
 
         int tipoPedido = leia.nextInt();
 
         switch(tipoPedido) {
             case 1:
-                System.out.println("===== RETIRADA NO BALCÃO ====="
-                        + "\n**Após confirmação do pagamento!!** ");
-                Thread.sleep(2500);
+                System.out.println("===== RETIRADA NO BALCÃO =====");
+                menu.Cardapio();
                 break;
             case 2:
-                System.out.println("===== ENTREGA A DOMOCÍLIO ====="
-                        + "\n*** Frete GRÁTIS *** "
-                        + "\nEndereço de entrega registrado em cadastro: " + cadastro.getEndereco());
-                Thread.sleep(2500);
+                System.out.println("===== ENTREGA A DOMOCÍLIO =====");
+                menu.Cardapio();
                 break;
             case 3:
-                System.out.println("===== ALACARTE ====="
-                        + "\nNos informe o número da sua mesa");
-                int numeroDaMesa = leia.nextInt();
-                System.out.println("Sua mesa é: " + numeroDaMesa);
-                Thread.sleep(2500);
+                System.out.println("===== ALACARTE =====");
+                menu.Cardapio();
                 break;
             default:
                 do {
