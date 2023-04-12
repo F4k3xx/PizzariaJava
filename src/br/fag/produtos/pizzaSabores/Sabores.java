@@ -5,16 +5,16 @@ package br.fag.produtos.pizzaSabores;
 public enum Sabores {
 
         // Sabores salgados
-        CALABRESA(35.0),
-        MUSSARELA(30.0),
-        PORTUGUESA(40.0),
-        FRANGO_COM_CATUPIRY(38.0),
-        QUATRO_QUEIJOS(42.0),
-        ATUM(36.0),
-        BACON(39.0),
-        MARGUERITA(33.0),
-        PALMITO(37.0),
-        ESCAROLA(38.0),
+        CALABRESA(1, 35.0, "Calabresa"),
+        MUSSARELA(2, 30.0, "Mussarela"),
+        PORTUGUESA(3, 40.0, "PORTUGUESA"),
+        FRANGO_COM_CATUPIRY(4,38.0, "FRANGO_COM_CATUPIRY"),
+        QUATRO_QUEIJOS(5, 42.0, "QUATRO_QUEIJOS"),
+        ATUM(6,36.0, "ATUM"),
+        BACON(7, 39.0, "BACON"),
+        MARGUERITA(8, 33.0, "MARGUERITA"),
+        PALMITO(9,37.0, "PALMITO"),
+        ESCAROLA(10,38.0, "ESCAROLA"),
 
         // Sabores doces
         CHOCOLATE(30.0),
@@ -30,10 +30,11 @@ public enum Sabores {
         BACON_COM_FRANGO(42.0),
         PALMITO_COM_BACON(44.0);
 
-        private String saborPizza;
+        private final int chave;
 
-        private double preco;
+        private final String saborPizza;
 
+        private final double preco;
 
         public String getSaborPizza() {
                 return saborPizza;
@@ -43,8 +44,10 @@ public enum Sabores {
                 this.saborPizza = saborPizza;
         }
 
-        Sabores(double preco) {
+        Sabores(int chave, double preco, String sabor) {
+            this.chave = chave;
             this.preco = preco;
+            this.saborPizza = sabor;
         }
 
         public double getPreco() {

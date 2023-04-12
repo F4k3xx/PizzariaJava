@@ -1,6 +1,7 @@
 package br.fag.menu;
 
 import br.fag.produtos.Opcionais;
+import br.fag.produtos.Pizza;
 import br.fag.produtos.pizzaSabores.Sabores;
 
 import java.util.Scanner;
@@ -10,6 +11,10 @@ public class Menu {
     private static int totalPizza;
     private static double valorPizza;
     private static Scanner sc;
+
+    private static int tamanhoPizza;
+
+    private Pizza qtdSabor;
 
     public Menu() {
     }
@@ -21,19 +26,49 @@ public class Menu {
         sc = new Scanner(System.in);
 
         int pizza = 0, quant1 = 0, quant2 = 0, quant3 = 0, quant4 = 0, quant5 = 0, quant6 = 0, quant7 = 0, quant8 = 0, quant9 = 0, quant10 = 0;
+
         String continuar;
 
         do {
             System.out.println("=========== CATALOGO ===========");
-            System.out.println("Escolha o sabor da sua pizza!");
+            System.out.println("Escolha o tamanho da sua Pizza:\n"
+                                + "1- Pequena\n"
+                                + "2- Grande\n"
+                                + "3- Gigante");
+
+            tamanhoPizza = sc.nextInt();
+
+            do{
+                System.out.println("Escolha o tamanho da sua Pizza:\n"
+                        + "1- Pequena\n"
+                        + "2- Grande\n"
+                        + "3- Gigante");
+                tamanhoPizza = sc.nextInt();
+
+            }while(tamanhoPizza < 1 || tamanhoPizza > 3);
+
+            pizza = sc.nextInt();
+            if (tamanhoPizza == 1){
+                System.out.println("Você escolheu a pizza Pequena");
+            } else if(tamanhoPizza == 2){
+                System.out.println("Você escolheu a pizza Grande");
+            } else {
+                System.out.println("Você escolheu a pizza Gigante");
+            }
 
             for (Sabores s : Sabores.values()) {
                 System.out.println(s.ordinal() +"-" + "Sabor: " + s.name() + ": " + s.getPreco());
             }
-
             System.out.println("Digite o número da pizza que você quer:");
-            
+
             pizza = sc.nextInt();
+
+            System.out.println("Você escolheu a pizza de " + Sabores.);
+            System.out.println("-> Quantas você deseja?");
+            Thread.sleep(1000);
+            quant1 = sc.nextInt();
+            System.out.println("-> Deseja mais algum sabor? (S ou N)");
+            Thread.sleep(1000);
 
             switch (pizza) {
                 case 1:
