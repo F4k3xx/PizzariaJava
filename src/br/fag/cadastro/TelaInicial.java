@@ -25,9 +25,9 @@ public class TelaInicial {
 
         System.out.println("Para iniciar, selecione uma opção: ");
         Thread.sleep(1000);
-        System.out.println("1. Já sou cliente");
-        System.out.println("2. Quero me cadastrar");
-        System.out.println("3. Sair");
+        System.out.println("1. Já sou cliente");    //Melhorar o fluxo
+        System.out.println("2. Quero me cadastrar");    //Ok
+        System.out.println("3. Sair");  //Ok
         Thread.sleep(1000);
         System.out.print("Digite sua escolha: ");
 

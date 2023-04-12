@@ -48,17 +48,13 @@ public class Cadastro {
         Cadastro.telefone = telefone;
     }
 
-    public String getEndereco() {
-        return endereco;
-    }
+    public String getEndereco() { return endereco; }
 
     public void setEndereco(String endereco) {
         Cadastro.endereco = endereco;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
+    public String getUsuario() { return usuario; }
 
     public void setUsuario(String usuario) {
         Cadastro.usuario = usuario;

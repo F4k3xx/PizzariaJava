@@ -17,7 +17,7 @@ public class EntregarRetirar{
             Thread.sleep(1500);
         }
         System.out.println("Seu pedido saiu para entrega ou está pronto para ser retirado");
-        System.out.println("Obrigado por realizar seu pedido na Java's Pizzaria! Até logo!");
+        System.out.println("Obrigado por realizar seu pedido na Pizzaria FAG! Até logo!");
 
     }
 }

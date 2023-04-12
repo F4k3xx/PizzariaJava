@@ -1,6 +1,7 @@
 package br.fag.menu;
 
 import br.fag.produtos.Opcionais;
+import br.fag.produtos.pizzaSabores.Sabores;
 
 import java.util.Scanner;
 
@@ -9,6 +10,9 @@ public class Menu {
     private static int totalPizza;
     private static double valorPizza;
     private static Scanner sc;
+
+    public Menu() {
+    }
 
     public void Cardapio() throws InterruptedException {
 
@@ -23,62 +27,94 @@ public class Menu {
             System.out.println("=========== CATALOGO ===========");
             System.out.println("Escolha o sabor da sua pizza!");
 
-            System.out.println("1. Muçarela		            R$36,00");
-            System.out.println("2. Calabresa		        R$36,00");
-            System.out.println("3. Moda da casa		        R$36,00");
-            System.out.println("4. Frango c/ Catupiry	    R$36,00");
-            System.out.println("5. Portuguesa		        R$36,00");
-            System.out.println("6. Marguerita		        R$36,00");
-            System.out.println("7. Napolitana		        R$36,00");
-            System.out.println("8. 4 Queijos		        R$36,00");
-            System.out.println("9. Atum com cebola	    	R$36,00");
-            System.out.println("10. Milho		            R$36,00");
+            for (Sabores s : Sabores.values()) {
+                System.out.println(s.ordinal() +"-" + "Sabor: " + s.name() + ": " + s.getPreco());
+            }
 
             System.out.println("Digite o número da pizza que você quer:");
-
+            
             pizza = sc.nextInt();
 
-            switch(pizza) {
+            switch (pizza) {
                 case 1:
                     System.out.println("Você escolheu a pizza de Mussarela!");
                     System.out.println("-> Quantas você deseja?");
                     Thread.sleep(1000);
                     quant1 = sc.nextInt();
-                    System.out.println("-> Deseja mais alguma pizza? (S ou N)");
-                    Thread.sleep(1560);
+                    System.out.println("-> Deseja mais algum sabor? (S ou N)");
+                    Thread.sleep(1000);
                     break;
                 case 2:
                     System.out.println("Você escolheu a pizza de Calabresa!");
                     System.out.println("-> Quantas você deseja?");
                     Thread.sleep(1000);
                     quant2 = sc.nextInt();
-                    System.out.println("-> Deseja mais alguma pizza? (S ou N)");
-                    Thread.sleep(1560);
+                    System.out.println("-> Deseja mais algum sabor? (S ou N)");
+                    Thread.sleep(1000);
                     break;
                 case 3:
                     System.out.println("Você escolheu a pizza de Moda da casa!");
                     System.out.println("-> Quantas você deseja?");
                     Thread.sleep(1000);
                     quant3 = sc.nextInt();
-                    System.out.println("-> Deseja mais alguma pizza? (S ou N)");
-                    Thread.sleep(1560);
+                    System.out.println("-> Deseja mais algum sabor? (S ou N)");
+                    Thread.sleep(1000);
                     break;
                 case 4:
                     System.out.println("Você escolheu a pizza de Frango c/ Catupiry!");
                     System.out.println("-> Quantas você deseja?");
                     Thread.sleep(1000);
                     quant4 = sc.nextInt();
-                    System.out.println("-> Deseja mais alguma pizza? (S ou N)");
-                    Thread.sleep(1560);
+                    System.out.println("-> Deseja mais algum sabor? (S ou N)");
+                    Thread.sleep(1000);
                     break;
                 case 5:
                     System.out.println("Você escolheu a pizza de Portuguesa! \n");
                     System.out.println("-> Quantas você deseja?");
                     Thread.sleep(1000);
                     quant5 = sc.nextInt();
-                    System.out.println("-> Deseja mais alguma pizza? (S ou N)");
-                    Thread.sleep(1560);
-
+                    System.out.println("-> Deseja mais algum sabor? (S ou N)");
+                    Thread.sleep(1000);
+                    break;
+                case 6:
+                    System.out.println("Você escolheu a pizza de Marguerita! \n");
+                    System.out.println("-> Quantas você deseja?");
+                    Thread.sleep(1000);
+                    quant6 = sc.nextInt();
+                    System.out.println("-> Deseja mais algum sabor? (S ou N)");
+                    Thread.sleep(1000);
+                    break;
+                case 7:
+                    System.out.println("Você escolheu a pizza de Napolitana! \n");
+                    System.out.println("-> Quantas você deseja?");
+                    Thread.sleep(1000);
+                    quant7 = sc.nextInt();
+                    System.out.println("-> Deseja mais algum sabor? (S ou N)");
+                    Thread.sleep(1000);
+                    break;
+                case 8:
+                    System.out.println("Você escolheu a pizza de 4 Queijos! \n");
+                    System.out.println("-> Quantas você deseja?");
+                    Thread.sleep(1000);
+                    quant8 = sc.nextInt();
+                    System.out.println("-> Deseja mais algum sabor? (S ou N)");
+                    Thread.sleep(1000);
+                    break;
+                case 9:
+                    System.out.println("Você escolheu a pizza de Atum com cebola! \n");
+                    System.out.println("-> Quantas você deseja?");
+                    Thread.sleep(1000);
+                    quant9 = sc.nextInt();
+                    System.out.println("-> Deseja mais algum sabor? (S ou N)");
+                    Thread.sleep(1000);
+                    break;
+                case 10:
+                    System.out.println("Você escolheu a pizza de Milho! \n");
+                    System.out.println("-> Quantas você deseja?");
+                    Thread.sleep(1000);
+                    quant10 = sc.nextInt();
+                    System.out.println("-> Deseja mais algum sabor? (S ou N)");
+                    Thread.sleep(1000);
                     break;
                 default:
                     System.out.println("Opção inválida!");
@@ -91,11 +127,10 @@ public class Menu {
             totalPizza = quant1 + quant2 + quant3 + quant4 + quant5 + quant6 + quant7 + quant8 + quant9 + quant10;
 
         }
-        while(!sc.next().equals("n".toLowerCase()));
+        while (!sc.next().equals("n".toLowerCase()));
 
         System.out.println("Você está pedindo " + totalPizza + " pizzas");
         Thread.sleep(1500);
-
 
 
         opcionais.EscolherOpcoes();

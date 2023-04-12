@@ -23,6 +23,7 @@ public class Opcionais {
 
             System.out.println("1. Borda recheada");
             System.out.println("2. Catupiry Extra");
+            System.out.println("3. Nenhum");
             Thread.sleep(1500);
             System.out.println("==== ESCOLHA UMA OPÇÃO ====");
             Thread.sleep(800);
@@ -36,6 +37,10 @@ public class Opcionais {
                     break;
                 case 2:
                     System.out.println("Você escolheu catupiry extra!");
+                    Thread.sleep(1500);
+                    break;
+                case 3:
+                    System.out.println("Você escolheu nenhum!");
                     Thread.sleep(1500);
                     break;
                 default:
