@@ -22,9 +22,11 @@ public class Menu {
         Opcionais opcionais = new Opcionais();
 
         sc = new Scanner(System.in);
+        String opcao;
 
         int tamanho = 0;
         int pizza = 0;
+        int totalPizza = 0;
         String continuar;
 
         do {
@@ -36,6 +38,9 @@ public class Menu {
             System.out.println("[0]- Pequena, [1]- Grande, [2]- Gigante");
             tamanho = sc.nextInt();
 
+            System.out.println("Quantas pizzas voce deseja?");
+            totalPizza = sc.nextInt();
+
             System.out.println(EnumTamanho.values()[tamanho]);
 
             System.out.println("Escolha o sabor da sua pizza!");
@@ -43,20 +48,28 @@ public class Menu {
             for (Sabores s : Sabores.values()) {
                 System.out.println(s.ordinal() +"-" + "Sabor: " + s.name() + ": " + s.getPreco());
             }
-
+            int[] quantidadeDeSabores = new int[3];
             int tamanhoSelecionado = List.of(EnumTamanho.values()).get(tamanho).getQuantidadesDesabor();
-            for (int i = 0;  i <= tamanhoSelecionado; i++) {
+            for (int i = 0;  i <= tamanho; i++) {
                 System.out.println("Digite o número da pizza que você quer:");
                 pizza = sc.nextInt();
+                quantidadeDeSabores[i] = pizza;
                 System.out.println(Sabores.values()[pizza]);
+
             }
-        }
-        while (!sc.next().equals("n".toLowerCase()));
+            System.out.println("Você está pedindo " + totalPizza + " pizzas " + "Tamanho " + EnumTamanho.values()[tamanho]);
+            System.out.println(" Sabores: ");
+            for (int i = 0; i <= tamanho; i++) {
+                System.out.println(Sabores.values()[quantidadeDeSabores[i]]);
+            }
+            System.out.println("Deseja adionar mais uma pizza? s/n");
+            opcao = sc.next();
+            while (!opcao.equals("s") &&  !opcao.equals("n")) {
+                System.out.println("Opção inválida. Digite apenas s ou n");
+                opcao = sc.next();
+            }
+        }while (opcao.equals("s"));
 
-        System.out.println("Você está pedindo " + totalPizza + " pizzas");
-        Thread.sleep(1500);
-
-        opcionais.EscolherOpcoes();
     }
 
     public static double getValorPizza() {
