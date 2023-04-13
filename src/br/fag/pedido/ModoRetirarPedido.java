@@ -21,23 +21,23 @@ public class ModoRetirarPedido {
     public void EscolherEntrega() throws InterruptedException {
 
         System.out.println("===== TIPO DO PEDIDO =====\n");
-        Thread.sleep(2000);
 
-        System.out.println("1. RETIRADA NO BALCÃO\n"
-                + "2. ENTREGA A DOMICÍLIO\n"
-                + "3. ALACARTE");
-        System.out.println("-> Selecione a melhor opção para você: ");
-
-        int tipoPedido = leia.nextInt();
-
-        System.out.println(EnumTipoPedido.values()[tipoPedido]);
-        menu.Cardapio();
-
+        int tipoPedido = 0;
 
         do {
+            System.out.println("1. RETIRADA NO BALCÃO\n"
+                    + "2. ENTREGA A DOMICÍLIO\n"
+                    + "3. ALACARTE");
+            System.out.println("-> Selecione a melhor opção para você: ");
+
+            tipoPedido = leia.nextInt();
+
+            System.out.println(EnumTipoPedido.values()[tipoPedido]);
+
+            menu.Cardapio();
+
             System.out.println("Escolha uma opção válida!"
                     + "\n 'Digite 1 para retornar as opções...");
-            Thread.sleep(1500);
             tipoPedido = leia.nextInt();
         } while (tipoPedido != 1 && tipoPedido != 2 && tipoPedido != 3);
 
