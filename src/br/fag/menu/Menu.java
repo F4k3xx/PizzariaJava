@@ -11,6 +11,8 @@ public class Menu {
 
     private static int totalPizza;
     private static double valorPizza;
+
+    private static double somaPizza;
     private static Scanner sc;
 
     public Menu() {
@@ -23,18 +25,16 @@ public class Menu {
         int valorDeCadaPizza = 0;
         int tamanho = 0;
         int pizza = 0;
-        int totalPizza = 0;
-        int somaPizza = 0;
+        totalPizza = 0;
+        somaPizza = 0;
         String continuar;
 
         //TIPO-PEDIDO
-        do {
             System.out.println("=========== CATALOGO ===========");
             System.out.println("[0]- Pequena -->  1 Sabor");
             System.out.println("[1]- Grande  -->  2 Sabor");
             System.out.println("[2]- Gigante -->  3 Sabor");
             System.out.println("Escolha o tamanho da sua Pizza:");
-            totalPizza += 1;
             tamanho = sc.nextInt();
             System.out.println(EnumTamanho.values()[tamanho]);
 
@@ -62,21 +62,16 @@ public class Menu {
             for (int i = 0; i <= tamanho; i++) {
                 Sabores listaDosSaboresSelecionados = Sabores.values()[saboresSelecionados[i]];
                 System.out.println(listaDosSaboresSelecionados);
+                somaPizza += listaDosSaboresSelecionados.getPreco();
             }
+                System.out.println("===============" + somaPizza);
+                totalPizza = (int) somaPizza / (tamanho);
 
-            System.out.println("Deseja adicionar mais uma pizza?");
-            System.out.println("[0]. SIM\n"
-                    + "[1]. NÃO");
-            opcao = sc.nextInt();
-            if (opcao == 1) {
                 Pagamentos.telaInicialPagamentos();
-            }
-
-        } while (opcao == 0);
     }
 
     public static int getValorPizza() {
-        return  totalPizza * 35 ;
+        return totalPizza;
     }
 
 }
