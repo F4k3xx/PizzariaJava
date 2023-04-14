@@ -23,17 +23,13 @@ public class TelaInicial {
 
         int opcao = 0;
         System.out.println("Olá! Seja bem-vinde a Pizzaria FAG!");
-        System.out.println("[1]. Para Venda rápida:");
-        System.out.println("[2]. Cadastrar-se");
-        opcao = (entrada.nextInt());
-        if (opcao == 1){
-            modoRetirarPedido.EscolherEntrega();
-        }
+        modoRetirarPedido.EscolherEntrega();
         EscolherOpcoesMenu();
     }
 
     public void EscolherOpcoesMenu() throws InterruptedException {
 
+        System.out.println("=========== DESEJA SE CADASTRAR? ===========");
         System.out.println("Para iniciar, selecione uma opção: ");
         System.out.println("1. Quero me cadastrar");    //Ok
         System.out.println("2. Sair");  //Ok
@@ -52,6 +48,7 @@ public class TelaInicial {
 
         } else {
             System.out.println("Opção inválida!");
+            EscolherOpcoesMenu();
         }
     }
 }

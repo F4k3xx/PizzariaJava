@@ -1,7 +1,6 @@
 package br.fag.menu;
 
 import br.fag.pagamentos.Pagamentos;
-import br.fag.produtos.bebidas.Bebidas;
 import br.fag.produtos.pizzaSabores.Sabores;
 import br.fag.produtos.tamanho.EnumTamanho;
 
@@ -9,8 +8,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-
-    Bebidas bebidas = new Bebidas();
 
     private static int totalPizza;
     private static double valorPizza;
@@ -22,12 +19,12 @@ public class Menu {
     public void Cardapio() throws InterruptedException {
 
         sc = new Scanner(System.in);
-        Double somaPizza = 0.0;
         int opcao;
         int valorDeCadaPizza = 0;
         int tamanho = 0;
         int pizza = 0;
         int totalPizza = 0;
+        int somaPizza = 0;
         String continuar;
 
         //TIPO-PEDIDO
@@ -41,10 +38,10 @@ public class Menu {
             tamanho = sc.nextInt();
             System.out.println(EnumTamanho.values()[tamanho]);
 
-            //CARDAPIO-PIZZA
+            //########### CARDAPIO-PIZZA ###########
             System.out.println("Escolha o sabor da sua pizza!");
             for (Sabores s : Sabores.values()) {
-                System.out.println(s.ordinal() + "-" + "Sabor: " + s.name() + ": " + s.getPreco());
+                System.out.println(s.ordinal() + "-" + "Sabor: " + s.name() + ": $" + s.getPreco());
             }
 
             int[] saboresSelecionados = new int[3];
@@ -72,7 +69,6 @@ public class Menu {
                     + "[1]. NÃO");
             opcao = sc.nextInt();
             if (opcao == 1) {
-                bebidas.catalogoBebidas();
                 Pagamentos.telaInicialPagamentos();
             }
 

@@ -7,8 +7,11 @@ import br.fag.pedido.EntregarRetirar;
 import java.util.Scanner;
 
 import br.fag.cadastro.Cadastro;
+import br.fag.pedido.ModoRetirarPedido;
+import br.fag.pedido.tipoPedido.EnumTipoPedido;
 
 public class Pagamentos {
+
 
     private static Cadastro cadastro = new Cadastro();
 
@@ -21,14 +24,12 @@ public class Pagamentos {
     public static void telaInicialPagamentos() throws InterruptedException {
 
         System.out.println("O valor total foi de R$" + Menu.getValorPizza());
-        Thread.sleep(1000);
-        cadastro.cadastrarUsuario();
         escolhaDoPagamento();
     }
 
     public static void escolhaDoPagamento() throws InterruptedException {
-        System.out.println("\nEscolha o meio de pagamento:\n\n1. Cartão de Crédito/Débito/VR."
-                + "\n2. Dinheiro.\n3. Pix.");
+        System.out.println("\nEscolha o meio de pagamento:\n\n0. Cartão de Crédito/Débito/VR."
+                + "\n1. Dinheiro.\n2. Pix.");
         Thread.sleep(1000);
         System.out.println("\nDigite o número do meio escolhido: ");
         Thread.sleep(1000);
@@ -36,13 +37,13 @@ public class Pagamentos {
         Thread.sleep(1000);
 
         switch (meioDePagamento) {
-            case 1:
+            case 0:
                 pagamentoPorCartao();
                 break;
-            case 2:
+            case 1:
                 pagamentoDinheiro();
                 break;
-            case 3:
+            case 2:
                 pagamentoEmPix();
                 break;
             default:
@@ -56,14 +57,12 @@ public class Pagamentos {
     }
 
     public static void pagamentoDinheiro() throws InterruptedException {
-        System.out.println("Pagamento em Dinheiro selecionado.\nPrecisa de troco?\n1. Sim.\n2. Não.");
-        Thread.sleep(1500);
+        System.out.println("Pagamento em Dinheiro selecionado.\nPrecisa de troco?\n0. Sim.\n1. Não.");
         byte troco = entrada.nextByte();
-        Thread.sleep(500);
 
-        if (troco == 1) {
+        if (troco == 0) {
             sistemaDeTroco();
-        } else if (troco == 2) {
+        } else if (troco == 1) {
 
         } else {
             do {
