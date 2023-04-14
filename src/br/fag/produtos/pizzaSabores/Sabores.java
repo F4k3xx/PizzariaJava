@@ -24,11 +24,11 @@ public enum Sabores {
         MORANGO_COM_NUTELLA(35.0),
 
         // Sabores mistos
-        FRANGO_COM_REQUEIJAO(40.0),
-        CALABRESA_COM_CREAM_CHEESE(43.0),
-        QUATRO_QUEIJOS_COM_CALABRESA(45.0),
-        BACON_COM_FRANGO(42.0),
-        PALMITO_COM_BACON(44.0);
+        NUTELLA(40.0),
+        MORANGO(43.0),
+        MORANGO_E_NUTELLA(45.0),
+        LEITE_NINHO(42.0),
+        CHOCOLATE_BANANA(44.0);
 
         private String saborPizza;
 
