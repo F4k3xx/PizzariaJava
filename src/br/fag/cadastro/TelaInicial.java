@@ -24,7 +24,7 @@ public class TelaInicial {
         int opcao = 0;
         System.out.println("Olá! Seja bem-vinde a Pizzaria FAG!");
         modoRetirarPedido.EscolherEntrega();
-        EscolherOpcoesMenu();
+        //EscolherOpcoesMenu();
     }
 
     public void EscolherOpcoesMenu() throws InterruptedException {

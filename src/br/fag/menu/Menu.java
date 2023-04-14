@@ -75,12 +75,8 @@ public class Menu {
         } while (opcao == 0);
     }
 
-    public static double getValorPizza() {
-        return totalPizza;
+    public static int getValorPizza() {
+        return  totalPizza * 35 ;
     }
 
-    public void setValorPizza(double valorPizza) {
-        this.valorPizza = totalPizza;
-        System.out.println(valorPizza);
-    }
 }
