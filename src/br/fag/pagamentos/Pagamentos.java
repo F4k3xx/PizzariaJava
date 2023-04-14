@@ -9,6 +9,7 @@ import java.util.Scanner;
 import br.fag.cadastro.Cadastro;
 import br.fag.pedido.ModoRetirarPedido;
 import br.fag.pedido.tipoPedido.EnumTipoPedido;
+import br.fag.produtos.Bebidas;
 
 public class Pagamentos {
 
@@ -21,9 +22,16 @@ public class Pagamentos {
 
     private static double valorPago;
 
-    public static void telaInicialPagamentos() throws InterruptedException {
+    static Bebidas bebidas = new Bebidas();
 
-        System.out.println("O valor total foi de R$" + Menu.getValorPizza());
+    public static void telaInicialPagamentos(int valorBebidas) throws InterruptedException {
+
+        int somaPizza = 0;
+        int somaTotal = 0;
+        somaPizza =  Menu.getValorPizza();
+        somaTotal =  valorBebidas + somaPizza;
+
+        System.out.println("O valor total foi de R$" + somaTotal);
         escolhaDoPagamento();
     }
 
@@ -57,31 +65,8 @@ public class Pagamentos {
     }
 
     public static void pagamentoDinheiro() throws InterruptedException {
-        System.out.println("Pagamento em Dinheiro selecionado.\nPrecisa de troco?\n0. Sim.\n1. Não.");
-        byte troco = entrada.nextByte();
-
-        if (troco == 0) {
-            sistemaDeTroco();
-        } else if (troco == 1) {
-
-        } else {
-            do {
-                System.out.println("Opção inválida. Digite 1 para tentar novamente.");
-                troco = entrada.nextByte();
-            } while (troco != 1 && troco != 2);
-
-            pagamentoDinheiro();
-        }
+        System.out.println("Pagamento em Dinheiro selecionado.");
         finalizarPedido.Finalizar();
-    }
-
-    public static void sistemaDeTroco() throws InterruptedException {
-        System.out.println("Para quanto?");
-        valorPago = entrada.nextDouble();
-        Thread.sleep(500);
-
-        double troco = valorPago - Menu.getValorPizza();
-        System.out.printf("Levaremos seu troco de R$" + troco);
     }
 
     public static void pagamentoEmPix() throws InterruptedException {

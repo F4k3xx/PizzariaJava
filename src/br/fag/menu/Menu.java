@@ -1,6 +1,7 @@
 package br.fag.menu;
 
 import br.fag.pagamentos.Pagamentos;
+import br.fag.produtos.Bebidas;
 import br.fag.produtos.pizzaSabores.Sabores;
 import br.fag.produtos.tamanho.EnumTamanho;
 
@@ -14,6 +15,7 @@ public class Menu {
 
     private static double somaPizza;
     private static Scanner sc;
+
 
     public Menu() {
     }
@@ -30,43 +32,48 @@ public class Menu {
         String continuar;
 
         //TIPO-PEDIDO
-            System.out.println("=========== CATALOGO ===========");
-            System.out.println("[0]- Pequena -->  1 Sabor");
-            System.out.println("[1]- Grande  -->  2 Sabor");
-            System.out.println("[2]- Gigante -->  3 Sabor");
-            System.out.println("Escolha o tamanho da sua Pizza:");
-            tamanho = sc.nextInt();
-            System.out.println(EnumTamanho.values()[tamanho]);
+        System.out.println("=========== CATALOGO ===========");
+        System.out.println("[0]- Pequena -->  1 Sabor");
+        System.out.println("[1]- Grande  -->  2 Sabor");
+        System.out.println("[2]- Gigante -->  3 Sabor");
+        System.out.println("Escolha o tamanho da sua Pizza:");
+        tamanho = sc.nextInt();
+        System.out.println(EnumTamanho.values()[tamanho]);
 
-            //########### CARDAPIO-PIZZA ###########
-            System.out.println("Escolha o sabor da sua pizza!");
-            for (Sabores s : Sabores.values()) {
-                System.out.println(s.ordinal() + "-" + "Sabor: " + s.name() + ": $" + s.getPreco());
-            }
+        //########### CARDAPIO-PIZZA ###########
+        System.out.println("Escolha o sabor da sua pizza!");
+        for (Sabores s : Sabores.values()) {
+            System.out.println(s.ordinal() + "-" + "Sabor: " + s.name() + ": $" + s.getPreco());
+        }
 
-            int[] saboresSelecionados = new int[3];
+        int[] saboresSelecionados = new int[3];
 
-            int tamanhoSelecionado = List.of(EnumTamanho.values()).get(tamanho).getQuantidadesDesabor();
+        int tamanhoSelecionado = List.of(EnumTamanho.values()).get(tamanho).getQuantidadesDesabor();
 
-            for (int i = 0; i <= tamanho; i++) {
-                System.out.println("Digite o número da pizza que você quer:");
-                pizza = sc.nextInt();
-                saboresSelecionados[i] = pizza;
-                System.out.println(Sabores.values()[pizza]);
-            }
-            System.out.println("=========================================");
-            System.out.println("Você está pedindo 1 pizza ");
-            System.out.println("Tamanho " + EnumTamanho.values()[tamanho]);
+        for (int i = 0; i <= tamanho; i++) {
+            System.out.println("Digite o número da pizza que você quer:");
+            pizza = sc.nextInt();
+            saboresSelecionados[i] = pizza;
+            System.out.println(Sabores.values()[pizza]);
+        }
+        System.out.println("=========================================");
+        System.out.println("Você está pedindo 1 pizza ");
+        System.out.println("Tamanho " + EnumTamanho.values()[tamanho]);
 
-            System.out.println("========= Sabores ========= ");
-            for (int i = 0; i <= tamanho; i++) {
-                Sabores listaDosSaboresSelecionados = Sabores.values()[saboresSelecionados[i]];
-                System.out.println(listaDosSaboresSelecionados);
-                somaPizza += listaDosSaboresSelecionados.getPreco();
-            }
-                totalPizza = (int) somaPizza / (tamanho + 1);
+        System.out.println("========= Sabores ========= ");
+        for (int i = 0; i <= tamanho; i++) {
+            Sabores listaDosSaboresSelecionados = Sabores.values()[saboresSelecionados[i]];
+            System.out.println(listaDosSaboresSelecionados);
+            somaPizza += listaDosSaboresSelecionados.getPreco();
+        }
+        totalPizza = (int) somaPizza / (tamanho + 1);
+        System.out.println("Valor da Pizza R$" + totalPizza);
 
-                Pagamentos.telaInicialPagamentos();
+        Bebidas bebidas = new Bebidas();
+
+        int valorBebidas = bebidas.catalogoBebidas();
+        Pagamentos.telaInicialPagamentos(valorBebidas);
+
     }
 
     public static int getValorPizza() {
