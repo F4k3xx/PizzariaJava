@@ -64,8 +64,7 @@ public class Menu {
                 System.out.println(listaDosSaboresSelecionados);
                 somaPizza += listaDosSaboresSelecionados.getPreco();
             }
-                System.out.println("===============" + somaPizza);
-                totalPizza = (int) somaPizza / (tamanho);
+                totalPizza = (int) somaPizza / (tamanho + 1);
 
                 Pagamentos.telaInicialPagamentos();
     }
