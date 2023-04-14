@@ -30,18 +30,7 @@ public enum Sabores {
         BACON_COM_FRANGO(42.0),
         PALMITO_COM_BACON(44.0);
 
-        private String saborPizza;
-
         private double preco;
-
-
-        public String getSaborPizza() {
-                return saborPizza;
-        }
-
-        public void setSaborPizza(String saborPizza) {
-                this.saborPizza = saborPizza;
-        }
 
         Sabores(double preco) {
             this.preco = preco;

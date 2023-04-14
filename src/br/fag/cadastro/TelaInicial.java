@@ -9,6 +9,8 @@ import static java.awt.SystemColor.menu;
 
 public class TelaInicial {
 
+    private static Scanner sc;
+
     private static Cadastro cadastro = new Cadastro();
 
     public static Scanner entrada = new Scanner(System.in);
@@ -19,12 +21,15 @@ public class TelaInicial {
 
     public void SaudarUsuario() throws InterruptedException {
 
+        int opcao = 0;
         System.out.println("Olá! Seja bem-vinde a Pizzaria FAG!");
-        System.out.println("Nesse aplicativo, você seleciona as opções selecionando os números correspondentes a ela");
-
-        modoRetirarPedido.EscolherEntrega();
+        System.out.println("[1]. Para Venda rápida:");
+        System.out.println("[2]. Cadastrar-se");
+        opcao = (entrada.nextInt());
+        if (opcao == 1){
+            modoRetirarPedido.EscolherEntrega();
+        }
         EscolherOpcoesMenu();
-
     }
 
     public void EscolherOpcoesMenu() throws InterruptedException {

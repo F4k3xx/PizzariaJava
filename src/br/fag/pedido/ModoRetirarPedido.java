@@ -4,11 +4,13 @@ import br.fag.cadastro.Cadastro;
 import br.fag.menu.Menu;
 import br.fag.pagamentos.Pagamentos;
 import br.fag.pedido.tipoPedido.EnumTipoPedido;
-import br.fag.produtos.tamanho.EnumTamanho;
+import br.fag.produtos.bebidas.Bebidas;
 
 import java.util.Scanner;
 
 public class ModoRetirarPedido {
+
+
 
     public Scanner leia = new Scanner(System.in);
 
@@ -20,29 +22,24 @@ public class ModoRetirarPedido {
 
     public void EscolherEntrega() throws InterruptedException {
 
-        System.out.println("===== TIPO DO PEDIDO =====\n");
-
         int tipoPedido = 0;
 
         do {
-            System.out.println("1. RETIRADA NO BALCÃO\n"
-                    + "2. ENTREGA A DOMICÍLIO\n"
-                    + "3. ALACARTE");
+            System.out.println("=========== TIPO DO PEDIDO ===========");
+            System.out.println("[0]. RETIRADA NO BALCÃO\n"
+                             + "[1]. ENTREGA A DOMICÍLIO\n"
+                             + "[2]. ALACARTE");
+
             System.out.println("-> Selecione a melhor opção para você: ");
 
             tipoPedido = leia.nextInt();
 
-            System.out.println(EnumTipoPedido.values()[tipoPedido]);
+            if (tipoPedido == 0 || tipoPedido == 1 || tipoPedido == 2){
+                System.out.println(EnumTipoPedido.values()[tipoPedido]);
+                menu.Cardapio();
+            }
 
-            menu.Cardapio();
-
-            System.out.println("Escolha uma opção válida!"
-                    + "\n 'Digite 1 para retornar as opções...");
-            tipoPedido = leia.nextInt();
         } while (tipoPedido != 1 && tipoPedido != 2 && tipoPedido != 3);
-
-        EscolherEntrega();
-        Pagamentos.telaInicialPagamentos();
 
     }
 }

@@ -1,11 +1,16 @@
 package br.fag.pagamentos;
 
+import br.fag.cadastro.Cadastro;
 import br.fag.menu.Menu;
 import br.fag.pedido.EntregarRetirar;
 
 import java.util.Scanner;
 
+import br.fag.cadastro.Cadastro;
+
 public class Pagamentos {
+
+    private static Cadastro cadastro = new Cadastro();
 
     private static EntregarRetirar finalizarPedido = new EntregarRetirar();
 
@@ -17,6 +22,7 @@ public class Pagamentos {
 
         System.out.println("O valor total foi de R$" + Menu.getValorPizza());
         Thread.sleep(1000);
+        cadastro.cadastrarUsuario();
         escolhaDoPagamento();
     }
 
@@ -67,7 +73,6 @@ public class Pagamentos {
 
             pagamentoDinheiro();
         }
-
         finalizarPedido.Finalizar();
     }
 
@@ -131,12 +136,9 @@ public class Pagamentos {
             }
         } else if (opcaoDePagamento == 2) {
             System.out.println("Cartão de Crédito selecionado.");
-            Thread.sleep(500);
             System.out.println("Escolha a bandeira referente ao seu cartão: ");
-            Thread.sleep(500);
             System.out.println("1- Visa.\n2- MasterCard.\n3- Elo\n4- American Express\n5- Nenhuma das opções acima.");
             byte bandeiraCartaoCredito = entrada.nextByte();
-            Thread.sleep(500);
 
             switch (bandeiraCartaoCredito) {
                 case 1:
@@ -144,12 +146,10 @@ public class Pagamentos {
                 case 3:
                 case 4:
                     System.out.println("O motoboy levará a máquininha.");
-                    Thread.sleep(500);
                     break;
                 case 5:
                     System.out.println(
                             "Não temos maquininha que aceite sua bandeira. Por favor, selecione outra forma de pagamento.");
-                    Thread.sleep(500);
                     mudarPagamento();
                 default:
                     do {
