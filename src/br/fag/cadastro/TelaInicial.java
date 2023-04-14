@@ -5,8 +5,6 @@ import br.fag.pedido.ModoRetirarPedido;
 
 import java.util.Scanner;
 
-import static java.awt.SystemColor.menu;
-
 public class TelaInicial {
 
     private static Scanner sc;
@@ -25,30 +23,5 @@ public class TelaInicial {
         System.out.println("Olá! Seja bem-vinde a Pizzaria FAG!");
         modoRetirarPedido.EscolherEntrega();
         //EscolherOpcoesMenu();
-    }
-
-    public void EscolherOpcoesMenu() throws InterruptedException {
-
-        System.out.println("=========== DESEJA SE CADASTRAR? ===========");
-        System.out.println("Para iniciar, selecione uma opção: ");
-        System.out.println("1. Quero me cadastrar");    //Ok
-        System.out.println("2. Sair");  //Ok
-        System.out.print("Digite sua escolha: ");
-
-        int escolha = (entrada.nextInt());
-
-        if (escolha == 1) {
-
-            cadastro.cadastrarUsuario();
-            menu.Cardapio();
-
-        } else if (escolha == 2) {
-
-            System.out.println("VocÃª saiu do programa");
-
-        } else {
-            System.out.println("Opção inválida!");
-            EscolherOpcoesMenu();
-        }
     }
 }

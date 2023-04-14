@@ -15,8 +15,6 @@ public class Bebidas {
 
     public int catalogoBebidas() throws InterruptedException {
 
-        ModoRetirarPedido retirar = new ModoRetirarPedido();
-
         sc = new Scanner(System.in);
 
         int bebidas = 0, quant1 = 0, quant2 = 0, quant3 = 0, totalBebidas = 0;

@@ -11,9 +11,6 @@ public class ModoRetirarPedido {
     public Scanner leia = new Scanner(System.in);
 
     Cadastro dados = new Cadastro();
-
-    private int modoEntrega;
-
     private Menu menu = new Menu();
 
     int[] tipoPedido = new int[3];

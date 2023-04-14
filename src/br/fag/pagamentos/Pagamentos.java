@@ -13,16 +13,9 @@ import br.fag.produtos.Bebidas;
 
 public class Pagamentos {
 
-
-    private static Cadastro cadastro = new Cadastro();
-
     private static EntregarRetirar finalizarPedido = new EntregarRetirar();
 
     public static Scanner entrada = new Scanner(System.in);
-
-    private static double valorPago;
-
-    static Bebidas bebidas = new Bebidas();
 
     public static void telaInicialPagamentos(int valorBebidas) throws InterruptedException {
 
