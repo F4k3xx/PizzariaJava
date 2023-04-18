@@ -24,6 +24,8 @@ public class Cadastro {
 
     }
 
+    //Commit
+
     public String getNome() {
         return nome;
     }
