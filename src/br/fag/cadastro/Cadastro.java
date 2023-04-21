@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Cadastro {
 
+    //commit
     public Scanner leitor = new Scanner(System.in);
 
     private static String nome;
